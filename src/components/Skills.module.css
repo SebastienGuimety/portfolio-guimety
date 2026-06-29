@@ -1,0 +1,113 @@
+.section {
+  background: var(--dark-2);
+  padding: 6rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(232,160,32,.1) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.intro { text-align: center; margin-bottom: 3rem; }
+
+.tag {
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: .6rem;
+}
+
+.title {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 900; color: var(--white); margin-bottom: .75rem;
+}
+
+.sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,.5);
+  max-width: 500px;
+  margin: 0 auto; line-height: 1.65;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.1rem;
+}
+
+.card {
+  position: relative;
+  border-radius: var(--radius);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .45s ease, transform .45s ease;
+  overflow: hidden;
+}
+
+.card.visible { opacity: 1; transform: none; }
+
+.cardInner {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+  transition: border-color .3s;
+}
+
+.card:hover .cardInner {
+  border-color: rgba(232,160,32,.4);
+}
+
+/* Glow effect behind card on hover */
+.cardGlow {
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius);
+  background: radial-gradient(
+    120px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(232,160,32,.18),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity .3s;
+  z-index: 0;
+}
+
+.card:hover .cardGlow { opacity: 1; }
+
+.emoji {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: .9rem;
+}
+
+.cardTitle {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem; font-weight: 800;
+  color: var(--white); margin-bottom: .4rem;
+}
+
+.cardDesc {
+  font-size: 0.858rem;
+  color: rgba(255,255,255,.5);
+  line-height: 1.65;
+}
+
+@media (max-width: 620px) {
+  .section { padding: 4rem 1.25rem; }
+  .grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,231 @@
+.section {
+  background: var(--surface);
+  padding: 6rem 1.5rem;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* ── Banner CTA ── */
+.banner {
+  background: var(--dark);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.bannerTitle {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: .4rem;
+}
+
+.bannerSub {
+  font-size: .9rem;
+  color: rgba(255,255,255,.5);
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+.bannerStats {
+  display: flex;
+  gap: 2.5rem;
+  flex-shrink: 0;
+}
+
+.stat { text-align: center; }
+.statN {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--gold);
+}
+.statL {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,.45);
+}
+
+/* ── Wrapper form + info ── */
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 2.5rem;
+  align-items: start;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.wrapper.visible { opacity: 1; transform: none; }
+
+/* ── Infos ── */
+.infoTitle {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 1.25rem;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+  margin-bottom: 2rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: color .2s;
+}
+
+.contactItem:hover .contactVal { color: var(--gold); }
+
+.contactIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.contactLabel {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.contactVal {
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: color .2s;
+}
+
+/* ── Formulaire ── */
+.form {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.formTitle {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 1rem;
+}
+
+.field label {
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.field input,
+.field select,
+.field textarea {
+  padding: 10px 13px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: 'Inter', sans-serif;
+  font-size: .9rem;
+  color: var(--text);
+  background: var(--white);
+  outline: none;
+  transition: border-color .2s;
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--gold);
+}
+
+.submit {
+  width: 100%;
+  padding: 14px;
+  background: var(--gold);
+  color: var(--dark);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--gold-hover);
+  transform: translateY(-2px);
+}
+
+.submit:disabled { opacity: .6; cursor: not-allowed; }
+
+.success {
+  margin-top: .75rem;
+  font-size: .875rem;
+  color: #2E7D32;
+  font-weight: 500;
+}
+
+.error {
+  margin-top: .75rem;
+  font-size: .875rem;
+  color: #c0392b;
+  font-weight: 500;
+}
+
+/* ── Responsive ── */
+@media (max-width: 760px) {
+  .section { padding: 3rem 1.25rem; }
+  .wrapper { grid-template-columns: 1fr; }
+  .row     { grid-template-columns: 1fr; }
+  .banner {
+    padding: 1.5rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  .bannerStats { display: none; }
+  .form { padding: 1.25rem; }
+}
